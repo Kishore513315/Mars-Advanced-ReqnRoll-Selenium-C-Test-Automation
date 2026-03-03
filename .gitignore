@@ -1,0 +1,56 @@
+﻿#############################################
+# .NET / Visual Studio
+#############################################
+
+bin/
+obj/
+out/
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+
+.idea/
+*.iml
+
+# Test Results
+
+TestResults/
+*.trx
+*.log
+
+# ReqnRoll Generated Files
+
+*.feature.cs
+Reqnroll.json.bak
+
+# Selenium / Reports
+
+Reports/
+Screenshots/
+ExtentReports/
+*.html
+
+# OS Files
+
+.DS_Store
+Thumbs.db
+
+# Environment
+
+appsettings.local.json
+*.env
+
+# NuGet Packages
+
+packages/
+
+# Temporary files
+
+*.tmp
+*.bak
+*.swp
