@@ -31,7 +31,7 @@ namespace MarsAdvancedReqnRollAutomation.Drivers
             string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Reports");
             Directory.CreateDirectory(folderPath);
 
-            string fileName = $"{SanitizeFileName(scenarioName)}_{DateTime.Now:yyyyMMdd_HHmmss}.png";
+            string fileName = $"{SanitizeFileName(scenarioName)}_{DateTime.Now:yyyyMMdd_HHmmssfff}.png";
             string filePath = Path.Combine(folderPath, fileName);
 
             Screenshot screenshot = ((ITakesScreenshot)_driver!).GetScreenshot();
@@ -62,4 +62,3 @@ namespace MarsAdvancedReqnRollAutomation.Drivers
         }
     }
 }
-

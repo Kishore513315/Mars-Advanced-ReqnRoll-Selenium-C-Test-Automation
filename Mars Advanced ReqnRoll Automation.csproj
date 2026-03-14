@@ -22,6 +22,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="TestData\ManageListings\TC_ML_001.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\ManageRequests\TC_MR_002.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\Certifications\TC_Profile_Cert_004.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\Certifications\TC_Profile_Cert_005.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\Description\TC_Profile_Descr_006.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\Education\TC_Profile_Edu_002.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\Education\TC_Profile_Edu_003.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Profile\TC_Profile_001.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TestData\SignInData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
