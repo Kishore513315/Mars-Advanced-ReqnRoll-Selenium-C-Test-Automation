@@ -2,24 +2,25 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using MarsAdvancedReqnRollAutomation.Drivers;
 using MarsAdvancedReqnRollAutomation.Pages;
-using MarsAdvancedReqnRollAutomation.Utilities;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Reqnroll;
 using System;
-
+using System.Linq;
 
 namespace MarsAdvancedReqnRollAutomation.Support
 {
     [Binding]
     public class Hooks
     {
-        private static ExtentReports _extent = ExtentManager.GetExtent();
+        private static ExtentReports _extent = Utilities.ExtentManager.GetExtent();
         private static ExtentTest? _feature;
         private static ExtentTest? _scenario;
 
         private readonly ScenarioContext _scenarioContext;
         private readonly FeatureContext _featureContext;
+
+        // ✅ Central base URL (keep consistent everywhere)
+        private const string BaseUrl = "http://localhost:5003/";
 
         public Hooks(ScenarioContext scenarioContext, FeatureContext featureContext)
         {
@@ -30,7 +31,7 @@ namespace MarsAdvancedReqnRollAutomation.Support
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _extent = ExtentManager.GetExtent();
+            _extent = Utilities.ExtentManager.GetExtent();
         }
 
         [BeforeFeature]
@@ -45,6 +46,10 @@ namespace MarsAdvancedReqnRollAutomation.Support
             _scenario = _feature!.CreateNode<Scenario>(_scenarioContext.ScenarioInfo.Title);
 
             Driver.InitializeDriver();
+
+            // ✅ NEW: Always open the AUT at the start of every scenario
+            var driver = Driver.GetDriver();
+            driver.Navigate().GoToUrl(BaseUrl);
 
             var scenarioTags = _scenarioContext.ScenarioInfo.Tags;
             var featureTags = _featureContext.FeatureInfo.Tags;
@@ -68,6 +73,7 @@ namespace MarsAdvancedReqnRollAutomation.Support
             var user = data["validUser"]
                        ?? throw new Exception("validUser not found in SignInData.json");
 
+            // Your LoginPage navigates + clicks Sign In itself, which is fine.
             loginPage.GoToLoginPage();
             loginPage.EnterCredentials(
                 user["Email"]!.ToString(),
